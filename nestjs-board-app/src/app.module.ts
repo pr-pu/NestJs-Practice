@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { BoardsModule } from './boards/boards.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Board } from './boards/board.entity';
+import { AuthModule } from './auth/auth.module';
+import { User } from './auth/user.entity';
 
 @Module({
   imports: [
@@ -12,10 +14,11 @@ import { Board } from './boards/board.entity';
       username: 'postgres',
       password: 'postgres',
       database: 'board-app',
-      entities: [Board],
+      entities: [Board, User],
       synchronize: true,
       autoLoadEntities: true,
   }),
-    BoardsModule],
+    BoardsModule,
+    AuthModule],
 })
 export class AppModule {}
