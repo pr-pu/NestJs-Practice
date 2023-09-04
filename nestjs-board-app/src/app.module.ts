@@ -16,7 +16,6 @@ import { User } from './auth/user.entity';
       database: 'board-app',
       entities: [Board, User],
       synchronize: true,
-      autoLoadEntities: true,
   }),
     BoardsModule,
     AuthModule],
